@@ -1,51 +1,25 @@
+# ce fichier decrit les services, il va etre consomme par la commande :
+# docker-compose up -d
+# cette commande va creer l'image et la lancer
+# ensuite pour verifier que ca tourne:
+# docker ps
+# pour tester :
+# curl http://localhost:8081
+# ... ou bien un equivalent dans un navigateur web
+# pour arreter
+# docker stop cat-php-apache
 version: '3.8'
 
 services:
   php-apache-environment:
-    container_name: php-apache-cat
+    # ce nom doit etre unique sur votre serveur, penser a le personnaliser si vous dupliquez le projet
+    container_name: cat-php-apache
     build:
         context: ./
         dockerfile: Dockerfile
-    depends_on:
-        - mysql
+    # liste des espaces disques sous le format "chemin-local:chemin-interne-container"
     volumes:
-      - ./:/var/www/html/
+      - ./src/:/var/www/html/
+    # liste des ports sous le format "port-local:port-interne-container"
     ports:
-      - 5000:80
-      - 8000:8000
-    networks:
-      - mysql
-  mysql:
-    image: mysql:5.7
-    container_name: mysql
-    command: ["--default-authentication-plugin=mysql_native_password"]
-    volumes:
-      - db_data:/var/lib/mysql
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: my-demo
-      MYSQL_USER: my-demo
-      MYSQL_PASSWORD: my-demo
-    networks:
-      - mysql
-  phpmyadmin:
-    depends_on:
-      - mysql
-    image: phpmyadmin/phpmyadmin
-    container_name: phpmyadmin
-    links:
-        - mysql
-    restart: always
-    ports:
-      - 8080:80
-    environment:
-      PMA_HOST: mysql
-      MYSQL_ROOT_PASSWORD: password0
-    networks:
-      - mysql
-networks:
-  mysql:
-volumes:
-  db_data:
-  
+      - 8081:80

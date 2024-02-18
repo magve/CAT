@@ -6,14 +6,14 @@ Premier commit
 php, manque la base de données, la map, etc.
 
 
-# Docker-LAMP-PHP8-MYSQL
-Installation d'un environnement de développement pour Symfony avec Docker qui comprend une stack LAMP : Debian 11, PHP8, MYSQL, Apache, Phpmyadmin, Symfony cli, Composer.
-
+# Serveur avec Docker
 Pré-requis installer Docker et Docker Compose:
 - **[Docker](https://docs.docker.com/get-docker/)**
 - **[Docker-compose](https://docs.docker.com/compose/install/)**
 - Pour utiliser Docker sans sudo (optionnel pas securisé) : https://docs.docker.com/engine/install/linux-postinstall/
 
+# Environnement de dev
+Disposer d'un projet dans GitHub (ou GitLab) et créer un clé ssh pour votre compte.
 Installer l'environnement de dev :
 ```
 git clone git@github.com:magve/CAT.git
@@ -32,9 +32,9 @@ docker-compose up -d
 docker ps 
 ```
 
-Le nom du container qui contient php et apache a pour nom : "php-apache" comme défini dans le docker-compose.yml  :
+Le nom du container qui contient php et apache a pour nom : "cat-php-apache" comme défini dans le docker-compose.yml  :
 
 → Lancer le bash de notre conteneur php afin d'intéragir avec la machine Debian :
 ```
-docker exec -ti php-apache-cat bash
+docker exec -ti cat-php-apache bash
 ```
