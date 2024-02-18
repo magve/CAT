@@ -16,10 +16,10 @@ Pré-requis installer Docker et Docker Compose:
 
 Installer l'environnement de dev :
 ```
-git clone https://github.com/AxelBlanchardon/Docker-LAMP-PHP8-MYSQL.git
+git clone git@github.com:magve/CAT.git
 ```
 ```
-cd Docker-LAMP-PHP8-MYSQL
+cd CAT
 ```
 
 → Construire les images et démarrer les containers en arrière plan (utiliser --build pour re builder les images) Par defaut utiliser sudo sous linux:
@@ -36,5 +36,5 @@ Le nom du container qui contient php et apache a pour nom : "php-apache" comme d
 
 → Lancer le bash de notre conteneur php afin d'intéragir avec la machine Debian :
 ```
-docker exec -ti php-apache bash
+docker exec -ti php-apache-cat bash
 ```
