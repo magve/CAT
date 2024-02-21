@@ -1,12 +1,13 @@
 # Chasse Au Trésor
 
 ---
-#Second commit
-Ajout d'un module pour gérer les sessions, ça permet de sauvegarder ce dont on a besoin pour répondre à un utilisateur.
----
-#Premier commit
-php, manque la base de données, la map, etc.
 
+# Second commit  
+
+Ajout d'un module pour gérer les sessions, ça permet de sauvegarder ce dont on a besoin pour répondre à un utilisateur.
+
+# Premier commit
+php, manque la base de données, la map, etc.
 
 ## Serveur avec Docker
 Pré-requis installer Docker et Docker Compose:
