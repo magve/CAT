@@ -1,18 +1,20 @@
 # Chasse Au Trésor
 
 ---
-
-Premier commit
+#Second commit
+Ajout d'un module pour gérer les sessions, ça permet de sauvegarder ce dont on a besoin pour répondre à un utilisateur.
+---
+#Premier commit
 php, manque la base de données, la map, etc.
 
 
-# Serveur avec Docker
+## Serveur avec Docker
 Pré-requis installer Docker et Docker Compose:
 - **[Docker](https://docs.docker.com/get-docker/)**
 - **[Docker-compose](https://docs.docker.com/compose/install/)**
 - Pour utiliser Docker sans sudo (optionnel pas securisé) : https://docs.docker.com/engine/install/linux-postinstall/
 
-# Environnement de dev
+## Environnement de dev
 Disposer d'un projet dans GitHub (ou GitLab) et créer un clé ssh pour votre compte.
 Installer l'environnement de dev :
 ```
