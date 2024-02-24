@@ -1,55 +1,50 @@
 <?php
 require_once( 'modules/session_api.php' );
+require_once( 'modules/logging_api.php' );
+require_once( 'modules/visiteur_api.php' );
+$nouveauVisiteur = estJoueurNouveau();
 ?>
 <!DOCTYPE html>
 <html lang="">
   <head>
+    <script src="../js/color-modes.js"></script>
   <!-- la balise viewport agit sur le look de la page, vue sur un telephone c'est mieux
-  https://www.alsacreations.com/astuce/lire/1177-Une-feuille-de-styles-de-base-pour-le-Web-mobile.html -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  https://getbootstrap.com/docs/5.3/examples/cheatsheet/ -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>C-A-T</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
   </head>
   <body>
-<?php
-// si l'ensemble fonctionne on verra ce message 
-echo('Hello World ! ');
-
-// Demonstration de la session
-// Un nouveau visiteur ne dispose pas de session
-
-$dejavu = session_get( 'dejavu' );
-if (!isset($dejavu)){
-    session_set( 'dejavu', 'oui' );
-    echo("<br/> c'est votre premiere visite." );
-	
-// en php on peut faire "echo" ou bien ecrire directement du html entre des balises 'php'
+<header class="bd-header bg-dark py-3 d-flex align-items-stretch border-bottom border-dark">
+  <div class="container-fluid d-flex align-items-center">
+    <h1 class="d-flex align-items-center fs-4 text-white mb-0">
+      <img src="img/cat_logo.png" width="38" height="38" class="me-3" alt="C-A-T">
+      Chasse-Au-Trésor
+    </h1>
+  </div>
+    <?php
+if (!$nouveauVisiteur){ affichePseudo();}
 ?>
-        <p>Cette page dispose d'une session et peut conserver des informations</p>
-        <form method="post" action="index.php">
-        <label for="memoire">Valeur</label>
-        <input type="text" name="memoire" pattern="[ 0-9a-zA-ZÀ-ÿ]*" title="(uniquement des chiffres ou des lettres)">
-        <br/><input type="submit" value="Envoyer">
-        </form>
-	
-<?php	
-	
+</header>
+<?php
+
+if ($nouveauVisiteur){
+
+    afficheDemandePseudo();
+
 } else {
 
-   if (!isset($memoire) && isset($_POST['memoire'])){
-	$memoire = $_POST['memoire'];
-	session_set( 'memoire', $memoire );
-	
-	echo( " je vais me souvenir de '" . $memoire ."'" );
-   } else {
-        $memoire = session_get( 'memoire');
-        echo(" je me souviens de '" . $memoire ."'" );
-   }
-?>
-<p>Si vous rappeler la même la page, je garde ma mémoire dans une session.</p>
-<p><a href="?deconnexion=">... pour que j'oublie appuyer ici</a></p>
-<?php
-} // fin isset($dejavu)
+echo ("<h1>Hello World!</h1>");
+
+
+} // fin if ($nouveauVisiteur)
 ?>
 
 
+<script src="js/bootstrap.bundle.min.js"></script>
+
+    <script src="js/cheatsheet.js"></script></body>
 </body>
 </html>

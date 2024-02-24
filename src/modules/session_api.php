@@ -319,6 +319,7 @@ if (isset($_GET['deconnexion'])){
 	session_clean();
 	echo "<html>\n<head>\n";
 	echo "\t<meta http-equiv=\"Refresh\" content=\"3; URL='/'\" />\n";
+	echo '<meta name="viewport" content="width=device-width, initial-scale=1">';
 	echo "</head><body>déconnexion réalisée, vous allez être redirigé vers la page d'accueil...</body></html>\n";
 	die();
 }
